@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="متجر إلكتروني — غيّر الاسم والمنتجات قبل النشر.">
+<title>متجري | متجر إلكتروني</title>
+<style>
+:root{--brand:#174b3e;--brand2:#286b58;--bg:#f6f7f3;--ink:#17231e;--muted:#68766f;--line:#e1e8e2;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}a{text-decoration:none;color:inherit}
+.announce{background:var(--brand);color:white;text-align:center;padding:9px;font-size:13px}
+header{background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:900;color:var(--brand);font-size:23px}.brand small{display:block;color:var(--muted);font-size:11px;font-weight:400;margin-top:3px}
+button{cursor:pointer;font:inherit}.cart-button,.primary{border:0;background:var(--brand);color:#fff;border-radius:11px;padding:11px 15px;font-weight:bold}
+main{max-width:1100px;margin:auto;padding:22px 20px 55px}
+.hero{border-radius:23px;background:linear-gradient(120deg,#123d32,#32745e);color:#fff;padding:36px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+.eyebrow{font-size:13px;color:#d8e9df}h1{font-size:clamp(28px,4.5vw,44px);line-height:1.35;margin:12px 0}.hero p{line-height:1.9;color:#e4eee8;max-width:570px}
+.hero-art{min-height:175px;display:grid;place-items:center;border:1px solid #ffffff35;border-radius:20px;background:#ffffff12;font-size:78px}.hero-link{display:inline-block;background:#fff;color:var(--brand);padding:12px 17px;border-radius:11px;font-weight:bold;margin-top:8px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:17px 0 34px}.perk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;font-size:14px}.perk b{display:block;margin-bottom:6px}.muted{color:var(--muted);font-size:13px;line-height:1.7}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}h2{margin:0;font-size:24px}.tools{display:flex;gap:10px;margin:16px 0}input,select,textarea{font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;min-width:0}.tools input{flex:1}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}.image{height:165px;background:#edf2ec;display:grid;place-items:center;font-size:58px}.body{padding:14px;display:flex;flex-direction:column;gap:9px;flex:1}.body h3{font-size:16px;margin:0}.price{font-size:19px;font-weight:900;color:var(--brand)}.desc{font-size:13px;color:var(--muted);line-height:1.7;flex:1}.add{border:0;background:var(--brand);color:white;border-radius:10px;padding:11px;font-weight:bold}.empty{grid-column:1/-1;background:#fff;border-radius:14px;padding:24px;text-align:center;color:var(--muted)}
+footer{background:#102f28;color:#fff;text-align:center;padding:25px 15px}footer p{color:#d4e2da;font-size:13px;margin:7px}
+dialog{border:0;border-radius:18px;padding:0;width:min(550px,calc(100% - 22px));box-shadow:0 15px 65px #0003}dialog::backdrop{background:#061b16aa}.modal-head{background:var(--brand);color:white;padding:15px 18px;display:flex;justify-content:space-between;align-items:center}.close{background:none;color:white;border:0;font-size:24px}.modal{padding:18px;max-height:75vh;overflow:auto}.line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}.qty{display:flex;gap:8px;align-items:center}.qty button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:3px 9px}.form{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.form input,.form select,.form textarea{width:100%}.full{grid-column:1/-1}.submit{width:100%;margin-top:13px;background:#19794f;color:white;border:0;padding:13px;border-radius:10px;font-weight:bold}.note{font-size:12px;color:var(--muted);line-height:1.7}
+@media(max-width:700px){main{padding:16px 13px 40px}.nav{padding:12px 14px}.hero{grid-template-columns:1fr;padding:24px 20px}.hero-art{min-height:100px;font-size:52px}.perks{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.image{height:125px}.body{padding:10px}.body h3{font-size:14px}.price{font-size:16px}.add{font-size:12px;padding:10px}}
+@media(max-width:400px){.form{grid-template-columns:1fr}.full{grid-column:auto}.brand{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="announce" id="announcement">التسوّق بسهولة • تفاصيل التوصيل تُضاف لاحقاً</div>
+<header><div class="nav"><a href="#" class="brand"><span id="storeName">متجري</span><small id="tagline">منتجات مختارة لك</small></a><button class="cart-button" onclick="openCart()">🛒 السلة (<span id="count">0</span>)</button></div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">مرحباً بك</div><h1 id="heroTitle">اكتشف منتجات تناسب احتياجاتك.</h1><p id="heroText">تصفح المنتجات، اختر ما يعجبك، وأرسل طلبك بسهولة. سنضيف تفاصيل المنتجات والتوصيل بعد تحديد مجال متجرك.</p><a class="hero-link" href="#products">تصفح المنتجات ←</a></div><div class="hero-art" aria-hidden="true">🛍️</div></section>
+<section class="perks"><div class="perk"><b>📦 خيارات متنوعة</b><span class="muted">تصنيفات قابلة للتعديل حسب نشاطك.</span></div><div class="perk"><b>💬 طلب بسيط</b><span class="muted">نموذج تجريبي لبيانات الزبون.</span></div><div class="perk"><b>📱 تصميم متجاوب</b><span class="muted">يعمل على الهاتف والحاسوب.</span></div></section>
+<section id="products"><div class="heading"><div><h2>المنتجات</h2><div class="muted">عناصر تجريبية — استبدلها قبل إطلاق المتجر.</div></div></div>
+<div class="tools"><input id="search" type="search" placeholder="ابحث عن منتج..." oninput="renderProducts()"><select id="category" onchange="renderProducts()"><option value="all">كل التصنيفات</option><option value="عام">عام</option><option value="مميز">مميز</option></select></div><div id="grid" class="grid"></div></section>
+</main>
+<footer><strong id="footerName">متجري</strong><p>متجر إلكتروني تجريبي قابل للتخصيص</p><p>أضف معلومات التواصل والتوصيل وسياسة الاستبدال قبل النشر.</p></footer>
+<dialog id="cartDialog"><div class="modal-head"><b>السلة وإرسال الطلب</b><button class="close" onclick="closeCart()">×</button></div><div class="modal" id="cartContent"></div></dialog>
+<script>
+// ===== إعدادات سهلة التغيير =====
+const STORE_NAME = "متجري"; // غيّر اسم المتجر لاحقاً
+const WHATSAPP_NUMBER = ""; // ضع رقم واتساب بصيغة دولية، مثال الجزائر: 213XXXXXXXXX
+const CURRENCY = "دج";
+// استبدل هذه العناصر بمنتجاتك الحقيقية بعد اختيار المجال
+const products = [
+ {id:1,name:"منتج تجريبي أول",category:"عام",price:1500,emoji:"📦",desc:"وصف قصير للمنتج. غيّره عند إضافة منتجك الحقيقي."},
+ {id:2,name:"منتج تجريبي ثانٍ",category:"مميز",price:2200,emoji:"✨",desc:"وصف قصير للمنتج. غيّره عند إضافة منتجك الحقيقي."},
+ {id:3,name:"منتج تجريبي ثالث",category:"عام",price:1800,emoji:"🛍️",desc:"وصف قصير للمنتج. غيّره عند إضافة منتجك الحقيقي."}
+];
+let cart={};
+const money=n=>new Intl.NumberFormat("fr-DZ").format(n)+" "+CURRENCY;
+document.title=STORE_NAME+" | متجر إلكتروني";
+document.getElementById("storeName").textContent=STORE_NAME;
+document.getElementById("footerName").textContent=STORE_NAME;
+function renderProducts(){
+ const q=document.getElementById("search").value.trim().toLowerCase(),cat=document.getElementById("category").value;
+ const list=products.filter(p=>(cat==="all"||p.category===cat)&&p.name.toLowerCase().includes(q));
+ document.getElementById("grid").innerHTML=list.length?list.map(p=>`<article class="card"><div class="image">${p.emoji}</div><div class="body"><div class="muted">${p.category}</div><h3>${p.name}</h3><div class="price">${money(p.price)}</div><div class="desc">${p.desc}</div><button class="add" onclick="add(${p.id})">أضف إلى السلة</button></div></article>`).join(""):'<div class="empty">لا توجد منتجات مطابقة.</div>';
+}
+function add(id){cart[id]=(cart[id]||0)+1;updateCount();if(document.getElementById("cartDialog").open)renderCart()}
+function updateCount(){document.getElementById("count").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function change(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];updateCount();renderCart()}
+function openCart(){renderCart();document.getElementById("cartDialog").showModal()}
+function closeCart(){document.getElementById("cartDialog").close()}
+function renderCart(){
+ const entries=Object.entries(cart).map(([id,qty])=>({p:products.find(p=>p.id===Number(id)),qty})).filter(x=>x.p);
+ const total=entries.reduce((s,x)=>s+x.p.price*x.qty,0);
+ let content=entries.length?entries.map(({p,qty})=>`<div class="line"><div><b>${p.name}</b><div class="muted">${money(p.price)} للقطعة</div></div><div class="qty"><button onclick="change(${p.id},-1)">−</button>${qty}<button onclick="change(${p.id},1)">+</button></div></div>`).join(""):`<div class="empty">السلة فارغة. أضف منتجاً أولاً.</div>`;
+ content+=`<div class="line"><b>المجموع دون التوصيل</b><b>${money(total)}</b></div>`;
+ if(entries.length)content+=`<form class="form" onsubmit="sendOrder(event)"><input name="name" placeholder="الاسم واللقب" required><input name="phone" type="tel" placeholder="رقم الهاتف" required><input name="wilaya" placeholder="الولاية" required><input name="address" placeholder="البلدية والعنوان" required><textarea class="full" name="notes" placeholder="ملاحظة (اختياري)" rows="2"></textarea><button class="submit full">إرسال الطلب عبر واتساب</button></form><p class="note full">هذه نسخة أولية: لا يتم حفظ الطلبات في قاعدة بيانات. ضع رقم واتساب الصحيح في الإعدادات واختبر الطلب قبل النشر.</p>`;
+ document.getElementById("cartContent").innerHTML=content;
+}
+function sendOrder(e){
+ e.preventDefault();if(!WHATSAPP_NUMBER||WHATSAPP_NUMBER.includes("X")){alert("أضف رقم واتساب الصحيح في متغير WHATSAPP_NUMBER داخل الكود أولاً.");return}
+ const f=new FormData(e.target),items=Object.entries(cart).map(([id,qty])=>{const p=products.find(x=>x.id===Number(id));return `${p.name} × ${qty} = ${money(p.price*qty)}`});
+ const total=Object.entries(cart).reduce((s,[id,q])=>s+products.find(p=>p.id===Number(id)).price*q,0);
+ const msg=`طلب جديد من ${STORE_NAME}\n${items.join("\n")}\nالمجموع دون التوصيل: ${money(total)}\nالاسم: ${f.get("name")}\nالهاتف: ${f.get("phone")}\nالولاية: ${f.get("wilaya")}\nالعنوان: ${f.get("address")}\nملاحظة: ${f.get("notes")||"لا يوجد"}`;
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank");
+}
+renderProducts();updateCount();
+</script>
+</body></html>
